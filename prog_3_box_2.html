@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio Progetto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #15487b;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            margin-left: 0;
+            padding: 100px 20px 20px;
+            flex: 1;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .carousel {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+            object-fit: cover;
+        }
+        .carousel img.active {
+            display: block;
+            opacity: 1;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(21, 72, 123, 0.8);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.8em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: rgba(26, 188, 156, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .carousel-button.prev {
+            left: 20px;
+        }
+        .carousel-button.next {
+            right: 20px;
+        }
+        .project-description {
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 1.2em;
+            color: #2c3e50;
+            line-height: 1.8;
+            text-align: justify;
+            padding: 0 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .back-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .back-button {
+            background-color: #15487b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #1abc9c;
+            transform: scale(1.05);
+        }
+        footer {
+            background: linear-gradient(145deg, #123b6b, #15487b);
+            color: white;
+            padding: 50px 20px 30px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .footer-icon {
+            font-size: 2.5em;
+            color: #1abc9c;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer-section h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-info p {
+            margin: 15px 0;
+        }
+        
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 25px;
+        }
+        
+        .footer-section a:hover {
+            color: #1abc9c;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .fab.fa-houzz {
+            color: #4DBC15;
+        }
+        
+        .fa-palette {
+            color: #FF6B6B;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .signature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.1em;
+        }
+        
+        .drafting-icon {
+            font-size: 1.4em;
+            color: #1abc9c;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Luisa Ghiselli</div>
+    </header>
+    <div class="content">
+        <h1>Ristrutturazione edilizia case private</h1>
+
+        <!-- Carosello di immagini -->
+        <div class="carousel">
+            <img src="3_tema/P2_01.jpg" alt="Progetto 1" class="active">
+            <img src="3_tema/P2_02.jpg" alt="Immagine 2">
+            <img src="3_tema/P2_03.jpg" alt="Immagine 3">
+            <img src="3_tema/P2_04.jpg" alt="Immagine 4">
+            <img src="3_tema/P2_05.jpg" alt="Immagine 5">
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+
+        <!-- Descrizione del progetto -->
+        <div class="project-description">
+            <p>
+                Questa è una descrizione dettagliata del progetto. Puoi aggiungere informazioni sul design, i materiali utilizzati, 
+                le sfide affrontate e i risultati ottenuti. Modifica questo testo per adattarlo al tuo progetto specifico.
+            </p>
+        </div>
+
+        <!-- Pulsante per tornare alla pagina precedente -->
+        <div class="back-button-container">
+            <button class="back-button">Torna alla pagina precedente</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-icon">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
+                <h3>Contatti</h3>
+                <div class="footer-info">
+                    <p><a href="tel:+393474526317">+39 3474526317</a></p>
+                    <p><a href="mailto:l.ghiselli@awn.it">l.ghiselli@awn.it</a></p>
+                    <p><a href="mailto:l.ghiselli73@gmail.com">l.ghiselli73@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <div class="footer-icon">
+                    <i class="fas fa-share-nodes"></i>
+                </div>
+                <h3>Social & Links</h3>
+                <div class="footer-info">
+                    <p><a href="https://www.houzz.it/professionisti/architetti/architetti-lusetti-ghiselli-pfvwit-pf~1293434985" target="_blank">
+                        <i class="fab fa-houzz"></i> Houzz Profile
+                    </a></p>
+                    <p><a href="https://www.archilovers.com/luisa-ghiselli/" target="_blank">
+                        <i class="fas fa-palette"></i> ArchiLovers
+                    </a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="signature">
+                <i class="fas fa-compass drafting-icon"></i>
+                <p>© 2025 Luisa Ghiselli Architettura</p>
+                <i class="fas fa-drafting-compass drafting-icon"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script per il carosello con animazione migliorata
+        const carouselImages = document.querySelectorAll('.carousel img');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            carouselImages[currentIndex].style.opacity = 0;
+            setTimeout(() => {
+                carouselImages[currentIndex].style.display = 'none';
+                carouselImages[index].style.display = 'block';
+                setTimeout(() => {
+                    carouselImages[index].style.opacity = 1;
+                }, 10);
+                currentIndex = index;
+            }, 500);
+        }
+
+        prevButton.addEventListener('click', () => {
+            const newIndex = (currentIndex > 0) ? currentIndex - 1 : carouselImages.length - 1;
+            showImage(newIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            const newIndex = (currentIndex < carouselImages.length - 1) ? currentIndex + 1 : 0;
+            showImage(newIndex);
+        });
+
+        // Mostra la prima immagine all'avvio
+        window.addEventListener('load', () => {
+            carouselImages[currentIndex].style.display = 'block';
+            carouselImages[currentIndex].style.opacity = 1;
+        });
+
+        // Script per il pulsante "Torna alla pagina precedente"
+        const backButton = document.querySelector('.back-button');
+        backButton.addEventListener('click', () => {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
