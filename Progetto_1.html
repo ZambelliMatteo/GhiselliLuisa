@@ -41,13 +41,13 @@
         .project-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             justify-content: space-between;
         }
         .project-row {
             width: calc(25% - 20px); /* 4 box per riga su schermi grandi */
             background-color: white;
-            padding: 15px;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -105,19 +105,69 @@
         /* Responsive design per schermi più piccoli */
         @media (max-width: 1024px) {
             .project-row {
-                width: calc(33.33% - 20px); /* 3 box per riga su tablet */
+                width: calc(33.33% - 15px); /* Larghezza più precisa */
+                margin-bottom: 15px;
             }
         }
 
         @media (max-width: 768px) {
+            .content {
+                padding: 70px 15px 15px; /* Padding ridotto */
+            }
+        
             .project-row {
-                width: calc(50% - 20px); /* 2 box per riga su dispositivi mobili */
+                width: calc(50% - 10px); /* Spaziatura ottimizzata */
+                margin-bottom: 10px;
+            }
+        
+            .project-row img {
+                height: 180px; /* Altezza ridotta per mobile */
+            }
+        
+            .project-text {
+                font-size: 0.9em; /* Testo più compatto */
+                padding: 0 5px;
+            }
+        
+            .back-home-button {
+                width: 100%; /* Pulsante a larghezza piena */
+                padding: 12px; /* Più touch-friendly */
+                font-size: 1em;
             }
         }
 
         @media (max-width: 480px) {
+            header {
+                padding: 10px 15px; /* Header più compatto */
+            }
+        
             .project-row {
-                width: 100%; /* 1 box per riga su schermi molto piccoli */
+                width: 100%; /* Full width su mobile */
+                margin-bottom: 15px;
+            }
+        
+            .project-row img {
+                height: 150px; /* Altezza ottimizzata */
+            }
+        
+            .footer-section {
+                min-width: 100%; /* Footer full width */
+                padding: 15px;
+                margin: 10px 0;
+            }
+        
+            .footer-content {
+                gap: 15px; /* Spaziatura ridotta */
+            }
+        }
+
+        @media (max-width: 360px) {
+            .project-text h3 {
+                font-size: 1.1em; /* Titoli più piccoli */
+            }
+            
+            .project-text p {
+                font-size: 0.85em; /* Testo più compatto */
             }
         }
 
@@ -347,7 +397,7 @@
             </div>
 
             <!-- Tasto "Torna alla Home" -->
-            <a href="Sito_Luisa_Ghiselli.html" class="back-home-button">Torna alla Home</a>
+            <a href="index.html" class="back-home-button">Torna alla Home</a>
         </section>
     </div>
     <footer>
