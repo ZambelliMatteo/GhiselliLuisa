@@ -169,7 +169,13 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            height: 450px;
+            height: auto; /* Modificato da 450px */
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         /* Sezione Cantieri */
         .project-container {
@@ -195,8 +201,8 @@
         }
         .project-row img {
             width: 300px;
-            height: 200px;
-            object-fit: cover;
+            height: auto; /* Modificato da 200px */
+            object-fit: contain; /* Modificato da cover */
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -348,9 +354,11 @@
                 padding: 15px;
             }
             .project-row img {
+                height: auto !important; /* Modificato da 250px */
                 width: 100% !important;
-                height: 250px !important; /* Altezza fissa per mobile */
-                margin-bottom: 15px;
+            }
+            .map-wrapper iframe {
+                height: 300px; /* Altezza fissa per mappa mobile */
             }
             .project-text h3 {
                 font-size: 1.3em;
@@ -377,7 +385,7 @@
         <a href="#progetto5">Nuove case e ampliamenti</a>
         <a href="#progetto6">Scuole</a>
         <a href="#progetto7">Parchi gioco e giardini</a>
-        <a href="#progetto8">Progettazione edifici</a>
+        <a href="#progetto8">Progettazione altri edifici</a>
     </div>
     <div class="content">
         <!-- Chi sono -->
@@ -417,8 +425,8 @@
                         <img src="1_tema/0_T1.jpg" alt="Progetto 1">
                     </a>
                     <div class="project-text">
-                        <h3>Ristrutturazione Scuola dell'infanzia</h3>
-                        <p>Descrizione breve del progetto Ristrutturazione Scuola dell'infanzia...</p>
+                        <h3>Ristrutturazione Edilizia</h3>
+                        <p>Case e appartamenti riqualificati e ripensati in un'ottica contemporanea</p>
                     </div>
                 </div>
                 <!-- Secondo Progetto -->
@@ -427,8 +435,8 @@
                         <img src="2_tema/0_T2.jpg" alt="Progetto 2">
                     </a>
                     <div class="project-text">
-                        <h3>Ristrutturazione e Riqualificazione energetica</h3>
-                        <p>Descrizione breve del progetto Ristrutturazione e Riqualificazione energetica...</p>
+                        <h3>Efficientamento Energetico</h3>
+                        <p>Case più prestazionali e confortevoli</p>
                     </div>
                 </div>
                 <!-- Terzo Progetto -->
@@ -437,8 +445,8 @@
                         <img src="3_tema/0_T3.jpg" alt="Progetto 3">
                     </a>
                     <div class="project-text">
-                        <h3>Efficientamento energetico</h3>
-                        <p>Descrizione breve del progetto Efficientamento energetico...</p>
+                        <h3>Restauro e risanamento conservativo</h3>
+                        <p>Ridare vita a edifici di pregio</p>
                     </div>
                 </div>
                 <!-- Quarto Progetto -->
@@ -447,8 +455,8 @@
                         <img src="4_tema/0_T4.jpg" alt="Progetto 4">
                     </a>
                     <div class="project-text">
-                        <h3>Cappotto termico</h3>
-                        <p>Descrizione breve del progetto Cappotto termico...</p>
+                        <h3>Recupero Planivolumetrico</h3>
+                        <p>Riconfigurazione dei volumi per ottenere una migliore distribuzione</p>
                     </div>
                 </div>
                 <!-- Quinto Progetto -->
@@ -457,8 +465,8 @@
                         <img src="5_tema/0_T5.jpg" alt="Progetto 5">
                     </a>
                     <div class="project-text">
-                        <h3>Ristrutturazione di appartamento</h3>
-                        <p>Descrizione breve del progetto Ristrutturazione di appartamento...</p>
+                        <h3>Nuove case e ampliamenti</h3>
+                        <p>Costruire da zero case su misura</p>
                     </div>
                 </div>
                 <!-- Sesto Progetto -->
@@ -467,8 +475,8 @@
                         <img src="6_tema/0_T6.jpg" alt="Progetto 6">
                     </a>
                     <div class="project-text">
-                        <h3>Ristrutturazione abitazione</h3>
-                        <p>Descrizione breve del progetto Ristrutturazione abitazione...</p>
+                        <h3>Scuole</h3>
+                        <p>Ripensare la distribuzione interna per adattarsi alla vita che cambia</p>
                     </div>
                 </div>
                 <!-- Settimo Progetto -->
@@ -477,8 +485,8 @@
                         <img src="7_tema/0_T7.jpg" alt="Progetto 7">
                     </a>
                     <div class="project-text">
-                        <h3>Recupero planivolumetrico</h3>
-                        <p>Descrizione breve del progetto Recupero planivolumetrico...</p>
+                        <h3>Parchi gioco e giardini</h3>
+                        <p>Giocare e vivere all'aria aperta</p>
                     </div>
                 </div>
                 <!-- Ottavo Progetto -->
@@ -487,8 +495,8 @@
                         <img src="8_tema/0_T8.jpg" alt="Progetto 8">
                     </a>
                     <div class="project-text">
-                        <h3>Allestimento parco giochi</h3>
-                        <p>Descrizione breve del progetto Allestimento parco giochi...</p>
+                        <h3>Progettazione altri edifici</h3>
+                        <p>Progettazioni e cantieri di edifici a varie funzioni</p>
                     </div>
                 </div>
             </div>
