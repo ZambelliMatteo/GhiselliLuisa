@@ -158,24 +158,22 @@
         }
         /* Sezione Dove sono */
         .location-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin: 20px 0;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
+            align-items: stretch;
         }
         .map-wrapper, .image-wrapper {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            height: auto; /* Modificato da 450px */
+            height: 500px; /* Altezza fissa aumentata */
+            position: relative;
         }
         
         .image-wrapper img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
         }
         /* Sezione Cantieri */
         .project-container {
@@ -200,9 +198,10 @@
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
         .project-row img {
-            width: 300px;
-            height: auto; /* Modificato da 200px */
-            object-fit: contain; /* Modificato da cover */
+            width: 400px;         /* Modificato da 300px */
+            height: 300px;        /* Aggiunta altezza fissa */
+            object-fit: cover;    /* Modificato da contain */
+            /* Mantenere il resto delle proprietà originali */
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -215,6 +214,10 @@
             flex: 1;
             font-size: 1em;
             color: #2c3e50;
+        }
+        .map-wrapper iframe {
+            height: 100%;
+            width: 100%;
         }
         /* Footer */
         footer {
@@ -346,7 +349,8 @@
                 padding: 0 10px;
             }
             .location-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
+                height: auto;
             }
             .project-row {
                 width: 100%;
@@ -354,11 +358,14 @@
                 padding: 15px;
             }
             .project-row img {
-                height: auto !important; /* Modificato da 250px */
-                width: 100% !important;
+                width: 100%;
+                height: 250px; /* Altezza ridotta su mobile */
             }
             .map-wrapper iframe {
                 height: 300px; /* Altezza fissa per mappa mobile */
+            }
+            .map-wrapper, .image-wrapper {
+                height: 300px; /* Riduci l'altezza su mobile */
             }
             .project-text h3 {
                 font-size: 1.3em;
@@ -396,7 +403,20 @@
                     <img src="logo.jpg" alt="Luisa Ghiselli">
                 </div>
                 <div class="bio-text">
-                    <p>Ciao, sono Luisa Ghiselli e sono un architetto. Mi occupo di progettazione di spazi innovativi e funzionali, curando ogni dettaglio con passione.</p>
+                    <p>Laureata al Politecnico di Milano in Architettura nel 1999, ho conseguito l’abilitazione alla professione nel
+                        2000. Nello stesso anno, apro la mia attività di libero-professionista.
+                        <br>
+                        Sono Coordinatore della Sicurezza dal 2000, Consulente tecnico del Tribunale di Reggio Emilia dal 2004 e
+                        Certificatore energetico dal 2010.
+                        Mi occupo di ristrutturazioni, restauri, cantieri ex novo. La mia attività abbraccia la progettazione, segue la
+                        direzione dei lavori, coordina la sicurezza del cantiere, studia l’arredamento degli interni.
+                        <br>
+                        Investo nella riqualificazione energetica di edifici e nella corretta distribuzione di ambienti residenziali e
+                        scolastici, sempre con grande attenzione alla funzionalità, all’innovazione e al confort interno.
+                        <br>
+                        L’occuparmi del cantiere dalla A alla Z mi permette di monitorare ogni singolo aspetto e ottenere il risultato
+                        voluto da me e desiderato dal cliente, curando ogni dettaglio con passione e professionalità.</p>
+                    <!--<p>Ciao, sono Luisa Ghiselli e sono un architetto. Mi occupo di progettazione di spazi innovativi e funzionali, curando ogni dettaglio con passione.</p>-->
                 </div>
             </div>
         </section>
@@ -410,7 +430,7 @@
                             width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="image-wrapper">
-                    <img src="./ufficio.png" alt="Immagine studio">
+                    <img src="./ufficio.jpg" alt="Immagine studio">
                 </div>
             </div>
         </section>
@@ -513,6 +533,7 @@
                     <p><a href="tel:+393474526317">+39 3474526317</a></p>
                     <p><a href="mailto:l.ghiselli@awn.it">l.ghiselli@awn.it</a></p>
                     <p><a href="mailto:l.ghiselli73@gmail.com">l.ghiselli73@gmail.com</a></p>
+                    <p><a href="mailto:luisa.ghiselli@archiworldpec.it">luisa.ghiselli@archiworldpec.it</a></p>
                 </div>
             </div>
             
