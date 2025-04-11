@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progetto 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.createElement('div');
+            hamburger.className = 'hamburger';
+            hamburger.innerHTML = '<span></span><span></span><span></span>';
+            document.querySelector('header').appendChild(hamburger);
+    
+            // Gestione menu mobile
+            document.querySelector('.hamburger').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+    
+            // Adatta immagini al resize
+            function handleResponsive() {
+                const projects = document.querySelectorAll('.project-row');
+                projects.forEach(project => {
+                    const img = project.querySelector('img');
+                    if (window.innerWidth <= 768) {
+                        img.style.height = '250px';
+                    } else {
+                        img.style.height = '200px';
+                    }
+                });
+            }
+    
+            window.addEventListener('resize', handleResponsive);
+            handleResponsive();
+        });
+    </script>
     <style>
         body {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -30,8 +59,6 @@
             margin-left: 0;
             padding: 80px 20px;
             flex: 1;
-            display: flex;
-            flex-direction: column;
         }
         section {
             padding: 50px 0;
@@ -88,9 +115,7 @@
             text-decoration: none;
             text-align: center;
             font-size: 1.1em;
-            margin-top: auto; /* Spinge il tasto verso il basso */
-            margin-bottom: 20px; /* Distanza dal footer */
-            align-self: flex-start; /* Allinea a sinistra */
+            margin-top: 20px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
@@ -106,6 +131,21 @@
             transition: transform 0.2s, opacity 0.2s;
         }
 
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+    
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
         /* Responsive design per schermi più piccoli */
         @media (max-width: 1024px) {
             .project-row {
@@ -113,21 +153,30 @@
                 margin-bottom: 15px;
             }
         }
-
         @media (max-width: 768px) {
+            header {
+                padding: 10px 15px;
+            }
+    
             .content {
-                padding: 70px 15px 15px; /* Padding ridotto */
+                padding: 70px 15px 15px;
             }
-        
+    
+            .project-container {
+                flex-direction: column;
+            }
+    
             .project-row {
-                width: calc(50% - 10px); /* Spaziatura ottimizzata */
-                margin-bottom: 10px;
+                width: 100% !important;
+                margin-bottom: 20px;
+                flex-direction: column;
             }
-        
+    
             .project-row img {
-                height: 180px; /* Altezza ridotta per mobile */
+                height: 250px !important;
+                width: 100% !important;
             }
-        
+
             .project-text {
                 font-size: 0.9em; /* Testo più compatto */
                 padding: 0 5px;
@@ -138,40 +187,26 @@
                 padding: 12px; /* Più touch-friendly */
                 font-size: 1em;
             }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 10px 15px; /* Header più compatto */
+    
+            .hamburger {
+                display: block;
             }
-        
-            .project-row {
-                width: 100%; /* Full width su mobile */
-                margin-bottom: 15px;
+    
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
-        
-            .project-row img {
-                height: 150px; /* Altezza ottimizzata */
+    
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
             }
-        
+    
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+    
             .footer-section {
-                min-width: 100%; /* Footer full width */
-                padding: 15px;
+                min-width: 100%;
                 margin: 10px 0;
-            }
-        
-            .footer-content {
-                gap: 15px; /* Spaziatura ridotta */
-            }
-        }
-
-        @media (max-width: 360px) {
-            .project-text h3 {
-                font-size: 1.1em; /* Titoli più piccoli */
-            }
-            
-            .project-text p {
-                font-size: 0.85em; /* Testo più compatto */
             }
         }
 
