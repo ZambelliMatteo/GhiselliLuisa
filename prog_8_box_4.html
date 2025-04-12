@@ -6,106 +6,191 @@
     <title>Dettaglio Progetto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @media (max-width: 768px) {
-            .content {
-                padding: 80px 15px 15px !important;
-            }
         
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .content {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
             h1 {
                 font-size: 24px !important;
-                padding: 0 10px;
                 line-height: 1.4;
             }
-        
+
             .carousel {
                 width: 100% !important;
-                height: 300px !important;
+                height: 400px !important;
                 border-radius: 8px;
             }
-        
+
             .carousel-button {
-                padding: 10px;
-                font-size: 1.2em;
+                padding: 12px;
+                font-size: 1.5em;
             }
-        
+
             .project-description {
                 font-size: 1em;
-                padding: 15px;
                 margin: 20px auto;
                 text-align: left;
             }
-        
+
             .back-button {
-                padding: 12px 25px;
-                font-size: 1em;
+                width: 100%;
+                max-width: 300px;
+                padding: 12px;
             }
-        
+
+            .footer-bottom {
+                padding-top: 20px;
+                margin-top: 30px;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
             .footer-section {
-                min-width: 100%;
+                box-sizing: border-box;
+                width: 100%;
                 margin: 10px 0;
-                padding: 20px;
+                padding: 25px 15px;
+            }
+
+            .footer-icon {
+                font-size: 2em;
+            }
+
+            .footer-section a {
+                display: block;
+                text-align: center;
+                padding: 8px 5px;
             }
         
             .footer-content {
-                gap: 20px;
-                padding: 0 15px;
+                padding: 0 10px;
+                gap: 15px;
             }
         
             .footer-section h3 {
-                font-size: 1.3em;
+                font-size: 1.2em;
+                margin-bottom: 15px;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .carousel {
-                height: 250px !important;
-            }
-        
-            .carousel-button {
-                padding: 8px;
-                font-size: 1em;
-            }
-        
-            .project-description {
+            .footer-info p {
                 font-size: 0.9em;
-                line-height: 1.6;
+                margin: 10px 0;
+            }
+
+            .signature {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 0.9em;
             }
         }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #15487b;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 60px;
+            left: -200px;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            margin: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
         body {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
             background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
         }
         header {
             background-color: #15487b;
             color: white;
             padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .content {
-            margin-left: 0;
             padding: 100px 20px 20px;
             flex: 1;
             text-align: center;
+            margin-top: 60px;
         }
         h1 {
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #15487b;
+            position: relative;
+            padding-bottom: 15px;
+        }
+    
+        h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #e67e22;
+            margin: 15px auto 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .carousel {
             position: relative;
@@ -139,7 +224,7 @@
             cursor: pointer;
             border-radius: 50%;
             font-size: 1.8em;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         .carousel-button:hover {
             background-color: rgba(26, 188, 156, 0.9);
@@ -157,11 +242,9 @@
             font-size: 1.2em;
             color: #2c3e50;
             line-height: 1.8;
-            text-align: justify;
-            padding: 0 20px;
+            padding: 20px;
             background-color: white;
             border-radius: 10px;
-            padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .back-button-container {
@@ -176,7 +259,7 @@
             font-size: 1.1em;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         .back-button:hover {
             background-color: #1abc9c;
@@ -187,18 +270,16 @@
             color: white;
             padding: 50px 20px 30px;
             margin-top: auto;
-            position: relative;
-            overflow: hidden;
             width: 100%;
         }
         
         .footer-section {
             flex: 1;
             min-width: 280px;
-            text-align: center;
             padding: 25px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
+            box-sizing: border-box;
             backdrop-filter: blur(5px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -291,7 +372,7 @@
         <div class="logo">Luisa Ghiselli</div>
     </header>
     <div class="content">
-        <h1>CASA RB – 2023-2024 Ridistribuzione degli spazi abitativi casa singola</h1>
+        <h1>Centro culturale ex area Enel – cavalcavia Cialdini</h1>
 
         <!-- Carosello di immagini -->
         <div class="carousel">
@@ -323,14 +404,9 @@
         <!-- Descrizione del progetto -->
         <div class="project-description">
             <p>
-                Ristrutturazione completa degli spazi abitativi di una casa privata singola a 2 livelli.
-                <br>
-                Il piano terra è stato completamente aperto alla luce naturale con un'open space molto funzionale a accogliente, una stanza multifunzionale e gli spazi a servizio.
-                Riqualificata la scala con materiali luminosi e un controsoffitto con barre a led.
-                <br>
-                Piano primo con 3 camere da letto, bagno e terrazzini molto accoglienti.
-                <br>
-                La casa è stata resa funzionale dal punto di vista energetico, da un cappotto termico, nuovi serramenti prestazionali, nuova impiantistica.
+                Mi sono approcciata ad un tema per me molto sentito e già molto attuale a fine anni ’90.
+                Questo progetto affronta il tema dell'Archeologia Industriale a Modena. Interessante e complesso il recupero dell'edificio ex Enel di via Parenti (zona La Sacca – cavalcavia Cialdini) con tematiche approfondite di Restauro e Consolidamento Strutturale. Si propone anche un nuovo complesso culturale con planimetria a “L” in vetro e acciaio che accoglie aule, laboratori, biblioteche specialistiche, un auditorium e una sala conferenze, infine un piano interrato adibito ad autorimessa. Lo studio progettuale ha insistito e voluto instaurare con il porticato e i materiali snelli e trasparenti, una stretta relazione tra il costruito e lo spazio aperto della piazza, dei giardini e dei percorsi pedonali. 
+
             </p>
         </div>
 

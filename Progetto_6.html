@@ -64,8 +64,32 @@
             padding: 50px 0;
         }
         h2 {
-            color: #2c3e50;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+            margin: 40px 0;
+            display: inline-block;
+            width: 100%;
+        }
+    
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e67e22;
+            margin: 15px auto 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+    
+        /* Modifica la sezione esistente h2 */
+        section h2 {
+            color: #15487b;
             margin-bottom: 20px;
+            font-size: 2.2em; /* Aumentato da 1.6em */
         }
         .project-container {
             display: flex;
@@ -101,7 +125,7 @@
         }
         .project-text {
             font-size: 1em;
-            color: #2c3e50;
+            color: #15487b;
             margin-top: 10px;
         }
 
