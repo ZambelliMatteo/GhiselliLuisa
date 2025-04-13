@@ -13,6 +13,10 @@
                 padding-right: 10px;
             }
 
+            .fa-drafting-compass {
+                order: 2; /* Posiziona l'icona destra dopo i testi */
+            }
+
             h1 {
                 font-size: 24px !important;
                 line-height: 1.4;
@@ -102,11 +106,17 @@
 
             .signature {
                 flex-direction: row !important;
-                gap: 15px;
+                gap: 10px 20px;
                 font-size: 1em;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
+            }
+
+            .signature p {
+                width: 100%; /* Occupa tutta la larghezza */
+                text-align: center; /* Allineamento centrale */
+                margin: 0; /* Rimuove margini preesistenti */
             }
 
             .carousel img {
@@ -115,6 +125,7 @@
             }
 
             .drafting-icon {
+                order: -1;
                 font-size: 1.2em; /* Dimensione ridotta per mobile */
                 margin: 0 5px; /* Spazio tra testo e icone */
             }
@@ -430,8 +441,8 @@
         <!-- Descrizione del progetto -->
         <div class="project-description">
             <p>
-                Tra il 2006 e il 2008 viene realizzata questa una nuova stalla a stabulazione libera per bovini, realizzata all'interno di un'Azienda Agricola già strutturata ma con l'esigenza di ampliarsi. 
-                Il territorio in cui si insedia la stalla è soggetto ad un vincolo paesaggistico – ambientale e pertanto il progetto ha avuto l’autorizzazione della Soprintendenza ai Beni ambientali e paesaggistici di Bologna e l'intervento rispetta tecniche e materiali della tradizione costruttiva locale.
+                Tra il 2006 e il 2008 viene costruita questa una nuova stalla a stabulazione libera per bovini, realizzata all'interno di un'Azienda Agricola già strutturata ma con l'esigenza di ampliarsi. 
+                <br>Il territorio in cui si insedia la stalla è soggetto ad un vincolo paesaggistico – ambientale e pertanto il progetto ha avuto l’autorizzazione della Soprintendenza ai Beni ambientali e paesaggistici di Bologna e l'intervento rispetta tecniche e materiali della tradizione costruttiva locale.
 
             </p>
         </div>
@@ -475,7 +486,7 @@
         <div class="footer-bottom">
             <div class="signature">
                 <i class="fas fa-compass drafting-icon"></i>
-                <p>© 2025 Luisa Ghiselli Architettura</p>
+                <p>© 2025 Luisa Ghiselli Architettura<br>P. iva 01897020358</p>
                 <i class="fas fa-drafting-compass drafting-icon"></i>
             </div>
         </div>

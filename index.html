@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger Menu
-            const hamburger = document.createElement('div');
-            hamburger.className = 'hamburger';
-            hamburger.innerHTML = '<span></span><span></span><span></span>';
-            document.querySelector('header').appendChild(hamburger);
-    
             // Menu Toggle
             document.querySelector('.hamburger').addEventListener('click', function() {
                 this.classList.toggle('active');
@@ -226,7 +220,7 @@
         .project-text {
             flex: 1;
             font-size: 1em;
-            color: #2c3e50;
+            color: #15487b;
         }
         .map-wrapper iframe {
             height: 100%;
@@ -342,6 +336,7 @@
                 width: 100%;
                 text-align: center;
                 padding: 0 10px;
+                color: #15487b;
             }
             .map-wrapper iframe {
                 height: 300px; /* Altezza fissa per mappa mobile */
@@ -411,36 +406,23 @@
                 margin-left: 0;
                 width: 100%;
             }
-    
-            .hamburger {
-                display: block;
+
+            .signature {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
             }
-        }
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-    
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-    
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-    
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-    
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+        
+            .signature p {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+            }
+
+            .signature p:nth-child(2)::after {
+                content: "\A";
+                white-space: pre;
+            }
         }
     </style>
 </head>
@@ -622,7 +604,7 @@
         <div class="footer-bottom">
             <div class="signature">
                 <i class="fas fa-compass drafting-icon"></i>
-                <p>© 2025 Luisa Ghiselli Architettura</p>
+                <p>© 2025 Luisa Ghiselli Architettura<br>P. iva 01897020358</p>
                 <i class="fas fa-drafting-compass drafting-icon"></i>
             </div>
         </div>

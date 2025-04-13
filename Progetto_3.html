@@ -302,16 +302,29 @@
         .signature {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             font-size: 1.1em;
+        }
+
+        .signature p {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            line-height: 1.4;
         }
         
         .drafting-icon {
+            order: -1;
             font-size: 1.4em;
             color: #1abc9c;
             animation: float 3s ease-in-out infinite;
         }
+
+        .fa-drafting-compass {
+        order: 2;
+    }
         
         @keyframes float {
             0%, 100% { transform: translateY(0); }
