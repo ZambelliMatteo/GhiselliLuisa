@@ -205,12 +205,13 @@
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
         .project-row img {
-            width: 400px;         /* Modificato da 300px */
-            height: 300px;        /* Aggiunta altezza fissa */
-            object-fit: cover;    /* Modificato da contain */
+            width: 450px;         /* Aumentata la larghezza */
+            height: auto; 
+            object-fit: contain;    /* Modificato da contain */
             /* Mantenere il resto delle proprietà originali */
             border-radius: 10px;
             cursor: pointer;
+            max-height: 350px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .project-row img:hover {
@@ -399,7 +400,8 @@
     
             .project-row img {
                 width: 100% !important;
-                height: 250px !important;
+                height: auto !important;
+                max-height: 300px !important;
             }
     
             footer {

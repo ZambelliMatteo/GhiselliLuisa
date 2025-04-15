@@ -38,12 +38,24 @@
                 max-height: none;
                 background: none;
                 padding: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
                 border-radius: 8px;
             }
 
             .carousel-button {
-                padding: 10px;
-                font-size: 1.3em;
+                padding: 8px;
+                font-size: 1.1em;
+                width: 35px;
+                height: 35px;
+            }
+
+            .carousel-button.prev {
+                left: -10px;
+            }
+            
+            .carousel-button.next {
+                right: -10px;
             }
 
             .project-description {
@@ -236,6 +248,16 @@
             align-items: center;
             background: #f0f0f0;
             width: fit-content;
+            position: relative;
+            padding-left: 20px; /* Spazio per la freccia sinistra */
+            padding-right: 20px;
+        }
+        .carousel-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
         .carousel img {
             width: auto; /* Larghezza automatica in base al rapporto */
@@ -263,16 +285,24 @@
             border-radius: 50%;
             font-size: 1.8em;
             transition: all 0.3s ease;
+            z-index: 10;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .carousel-button:hover {
             background-color: rgba(26, 188, 156, 0.9);
             transform: translateY(-50%) scale(1.1);
         }
+        
         .carousel-button.prev {
-            left: 20px;
+            left: -15px; /* Avvicinato al bordo */
         }
+        
         .carousel-button.next {
-            right: 20px;
+            right: -15px; /* Avvicinato al bordo */
         }
         .project-description {
             max-width: 800px;
@@ -423,35 +453,37 @@
         <div class="logo">Luisa Ghiselli</div>
     </header>
     <div class="content">
-        <h1>Casa NN</h1>
+        <h1>Casa NN - 2024 Ristrutturazione di tutti i piani della casa</h1>
 
         <!-- Carosello di immagini -->
-        <div class="carousel">
-            <img src="1_tema/P1_01.jpg" alt="Progetto 1" class="active">
-            <img src="1_tema/P1_02.jpg" alt="Immagine 2">
-            <img src="1_tema/P1_03.jpg" alt="Immagine 3">
-            <img src="1_tema/P1_04.jpg" alt="Immagine 4">
-            <img src="1_tema/P1_05.jpg" alt="Immagine 5">
-            <img src="1_tema/P1_06.jpg" alt="Immagine 6">
-            <img src="1_tema/P1_07.jpg" alt="Immagine 7">
-            <img src="1_tema/P1_08.jpg" alt="Progetto 1">
-            <img src="1_tema/P1_09.jpg" alt="Immagine 2">
-            <img src="1_tema/P1_10.jpg" alt="Immagine 3">
-            <img src="1_tema/P1_11.jpg" alt="Immagine 4">
-            <img src="1_tema/P1_12.jpg" alt="Immagine 5">
-            <img src="1_tema/P1_13.jpg" alt="Immagine 6">
-            <img src="1_tema/P1_14.jpg" alt="Progetto 1">
-            <img src="1_tema/P1_15.jpg" alt="Immagine 2">
-            <img src="1_tema/P1_16.jpg" alt="Immagine 3">
-            <img src="1_tema/P1_17.jpg" alt="Immagine 4">
-            <img src="1_tema/P1_18.jpg" alt="Immagine 5">
-            <img src="1_tema/P1_19.jpg" alt="Immagine 6">
-            <img src="1_tema/P1_20.jpg" alt="Immagine 7">
-            <img src="1_tema/P1_21.jpg" alt="Progetto 1">
-            <img src="1_tema/P1_22.jpg" alt="Immagine 2">
-            <img src="1_tema/P1_23.jpg" alt="Immagine 3">
-            <img src="1_tema/P1_24.jpg" alt="Immagine 4">
+        <div class="carousel-container">
             <button class="carousel-button prev">&#10094;</button>
+            <div class="carousel">
+                <img src="1_tema/P1_01.jpg" alt="Progetto 1" class="active">
+                <img src="1_tema/P1_02.jpg" alt="Immagine 2">
+                <img src="1_tema/P1_03.jpg" alt="Immagine 3">
+                <img src="1_tema/P1_04.jpg" alt="Immagine 4">
+                <img src="1_tema/P1_05.jpg" alt="Immagine 5">
+                <img src="1_tema/P1_06.jpg" alt="Immagine 6">
+                <img src="1_tema/P1_07.jpg" alt="Immagine 7">
+                <img src="1_tema/P1_08.jpg" alt="Progetto 1">
+                <img src="1_tema/P1_09.jpg" alt="Immagine 2">
+                <img src="1_tema/P1_10.jpg" alt="Immagine 3">
+                <img src="1_tema/P1_11.jpg" alt="Immagine 4">
+                <img src="1_tema/P1_12.jpg" alt="Immagine 5">
+                <img src="1_tema/P1_13.jpg" alt="Immagine 6">
+                <img src="1_tema/P1_14.jpg" alt="Progetto 1">
+                <img src="1_tema/P1_15.jpg" alt="Immagine 2">
+                <img src="1_tema/P1_16.jpg" alt="Immagine 3">
+                <img src="1_tema/P1_17.jpg" alt="Immagine 4">
+                <img src="1_tema/P1_18.jpg" alt="Immagine 5">
+                <img src="1_tema/P1_19.jpg" alt="Immagine 6">
+                <img src="1_tema/P1_20.jpg" alt="Immagine 7">
+                <img src="1_tema/P1_21.jpg" alt="Progetto 1">
+                <img src="1_tema/P1_22.jpg" alt="Immagine 2">
+                <img src="1_tema/P1_23.jpg" alt="Immagine 3">
+                <img src="1_tema/P1_24.jpg" alt="Immagine 4">
+            </div>
             <button class="carousel-button next">&#10095;</button>
         </div>
 
