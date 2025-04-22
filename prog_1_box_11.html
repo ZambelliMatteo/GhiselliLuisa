@@ -38,12 +38,24 @@
                 max-height: none;
                 background: none;
                 padding: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
                 border-radius: 8px;
             }
 
             .carousel-button {
-                padding: 10px;
-                font-size: 1.3em;
+                padding: 8px;
+                font-size: 1.1em;
+                width: 35px;
+                height: 35px;
+            }
+
+            .carousel-button.prev {
+                left: -10px;
+            }
+            
+            .carousel-button.next {
+                right: -10px;
             }
 
             .project-description {
@@ -236,6 +248,16 @@
             align-items: center;
             background: #f0f0f0;
             width: fit-content;
+            position: relative;
+            padding-left: 20px; /* Spazio per la freccia sinistra */
+            padding-right: 20px;
+        }
+        .carousel-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
         .carousel img {
             width: auto; /* Larghezza automatica in base al rapporto */
@@ -263,16 +285,24 @@
             border-radius: 50%;
             font-size: 1.8em;
             transition: all 0.3s ease;
+            z-index: 10;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .carousel-button:hover {
             background-color: rgba(26, 188, 156, 0.9);
             transform: translateY(-50%) scale(1.1);
         }
+        
         .carousel-button.prev {
-            left: 20px;
+            left: -15px; /* Avvicinato al bordo */
         }
+        
         .carousel-button.next {
-            right: 20px;
+            right: -15px; /* Avvicinato al bordo */
         }
         .project-description {
             max-width: 800px;
@@ -426,7 +456,9 @@
         <h1>CASA EF</h1>
 
         <!-- Carosello di immagini -->
-        <div class="carousel">
+        <div class="carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+            <div class="carousel">
             <img src="1_tema/P11_01.jpg" alt="Progetto 1" class="active">
             <img src="1_tema/P11_02.jpg" alt="Immagine 2">
             <img src="1_tema/P11_03.jpg" alt="Immagine 3">
@@ -443,9 +475,9 @@
             <img src="1_tema/P11_14.jpg" alt="Immagine 5">
             <img src="1_tema/P11_15.jpg" alt="Immagine 6">
             <img src="1_tema/P11_16.jpg" alt="Immagine 7">
-            <button class="carousel-button prev">&#10094;</button>
-            <button class="carousel-button next">&#10095;</button>
         </div>
+        <button class="carousel-button next">&#10095;</button>
+    </div>
 
         <!-- Descrizione del progetto -->
         <div class="project-description">
